@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        
+        /* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container for the to-do list */
+.todo-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 400px;
+    text-align: center;
+}
+
+/* Header */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Input and Button styling */
+input[type="text"] {
+    padding: 10px;
+    width: 70%;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+ul {
+    list-style-type: none;
+    margin-top: 20px;
+}
+
+li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+
+button.remove {
+    background-color: red;
+    padding: 5px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+}
+
+button.remove:hover {
+    background-color: darkred;
+}
+.fa-trash{
+    cursor: pointer;
+}
+
+
+    </style>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="todo-container">
+        <h1>To-Do List</h1>
+        <input type="text" id="new-task" placeholder="Enter a new task" />
+        <button id="add-task" onclick="addTask()">Add Task</button>
+        <ul id="task-list"></ul>
+    </div>
+
+  
+</body>
+<script>
+    let newtask = document.getElementById('new-task');
+    let task = document.getElementById('task-list');
+    function addTask(){
+       if(newtask==''){
+        alert('Please enter a task');
+       }else{
+        let child  = document.createElement('li');
+        child.innerHTML=`${newtask.value}<i class="fa-solid fa-trash"></i>`
+        task.appendChild(child);
+        newtask.value = ""
+        child.querySelector('i').addEventListener('click',remove);
+        function remove(){
+            task.remove()
+        }
+        
+
+       
+       }
+    }
+    
+</script>
+</html>
+
+</body>
+</html>
